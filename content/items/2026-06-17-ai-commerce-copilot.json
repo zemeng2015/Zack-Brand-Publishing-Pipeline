@@ -36,11 +36,14 @@
   "assets": {
     "script_path": "content/scripts/2026-06-17-ai-commerce-copilot-short-video.md",
     "cover_prompt_path": "content/covers/2026-06-17-ai-commerce-copilot-cover.md",
-    "blog_path": "content/blogs/2026-06-17-ai-commerce-copilot.md"
+    "blog_path": "content/blogs/2026-06-17-ai-commerce-copilot.md",
+    "linkedin_path": "content/linkedin/2026-06-17-ai-commerce-copilot.md",
+    "bilibili_post_path": "content/platform-posts/2026-06-17-ai-commerce-copilot-bilibili.md",
+    "xiaohongshu_post_path": "content/platform-posts/2026-06-17-ai-commerce-copilot-xiaohongshu.md",
+    "review_path": "content/reviews/2026-06-17-ai-commerce-copilot-review.md"
   },
   "safety_review": {
     "approved_for_public_release": false,
     "notes": "Review before publishing. Do not show real seller data, credentials, cookies, private platform screens, or claims of official Temu partnership/live account automation."
   }
 }
-

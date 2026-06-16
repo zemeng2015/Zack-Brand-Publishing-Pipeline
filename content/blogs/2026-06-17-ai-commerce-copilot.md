@@ -1,21 +1,98 @@
-# Turning an AI Commerce Demo into a Private Deployable Operations System
+# 我如何把跨境电商 AI 助手从 Demo 做成可私有部署的运营系统
 
-Most AI demos fail when they meet real operations.
+很多 AI Demo 看起来很酷，但真正进入业务场景时，问题会立刻变得具体。
 
-For a cross-border commerce operator, the problem is not simply asking an LLM what to sell. The real workflow includes product research, supplier quote tracking, risk exclusion, content preparation, review tasks, and boss-level decision support.
+数据能不能安全？
+AI 的建议有没有证据？
+谁来审批？
+结果能不能追踪？
+系统能不能在客户自己的环境里运行？
 
-This project explores a safer shape for an AI commerce assistant:
+这些问题不解决，AI 项目很容易停留在“演示效果不错”，但业务方不敢真正试用。
 
-- product-family scoring
-- supplier quote priority
-- internal content drafts
-- human approval gates
-- audit evidence
-- private/local deployment
+## 问题不是“问 AI 卖什么”
 
-The engineering lesson is simple: production AI systems need boundaries.
+跨境电商运营不是简单问一句：“现在应该卖什么产品？”
 
-The assistant should not silently mutate external seller platforms or pretend that estimated profit is verified profit. It should organize evidence, make next actions clear, and keep humans in control of irreversible decisions.
+真实流程里有很多环节：
 
-That is the difference between an AI demo and an AI system a business can actually evaluate.
+- 选品和产品族分析
+- 供应商询价
+- 利润和成本估算
+- 风险排除
+- 内容草稿
+- 老板或运营负责人审批
+- 证据留存
+- 后续小批量测试
 
+如果 AI 系统只给一个结论，却没有证据、没有审核、没有边界，这个结论很难进入真实运营。
+
+## 我想做的系统形态
+
+我把这个项目设计成一个 AI Commerce Copilot。
+
+它不是让 AI 直接接管卖家后台，也不是做一个“全自动赚钱机器”。更合理的方向是让 AI 帮运营团队整理信息、生成建议、排优先级，然后把关键动作交给人确认。
+
+当前系统重点包括：
+
+- 产品评分
+- 供应商询价优先级
+- 内容草稿生成
+- 风险排除
+- 人工审批任务
+- 审计证据
+- 本地/私有部署路径
+
+这个方向听起来没有“全自动”那么刺激，但更接近企业 AI 真正能落地的方式。
+
+## 为什么要有审批和证据
+
+AI 在业务系统里的价值，不只是生成文本。
+
+真正有价值的是：它能不能把复杂流程变得更清楚，让人更快做出有依据的决定。
+
+比如产品推荐，系统不能只说“这个产品值得做”。它需要告诉你：
+
+- 为什么排序靠前
+- 依据来自哪里
+- 哪些数据只是公开参考
+- 哪些成本还没有供应商确认
+- 是否存在风险
+- 下一步应该找供应商询价，还是进入内容准备
+
+这些信息比一句漂亮的 AI 总结更重要。
+
+## 安全边界是产品能力的一部分
+
+我在这个项目里刻意保留了安全边界：
+
+- 不保存真实账号密码
+- 不保存 cookie 或 token
+- 不自动操作外部卖家平台
+- 不把估算利润说成真实利润
+- 不把 demo 数据包装成真实业务结果
+
+这不是保守，而是工程判断。
+
+企业 AI 系统如果想被真正使用，就必须让业务方知道：AI 在哪里给建议，人在什么时候审批，哪些动作不会被系统偷偷执行。
+
+## 从求职角度看，这个项目证明什么
+
+对我来说，这个项目不是为了展示“我会调用 LLM API”。
+
+它更想证明几个能力：
+
+- 能把模糊业务问题拆成可执行系统
+- 能设计 AI 工作流，而不是只做聊天界面
+- 能处理人工审批、审计、数据安全和部署边界
+- 能用工程方式把 demo 推向可试用产品
+
+这也是我理解的 Applied AI Engineer：不是只会做模型调用，而是能把 AI 放进真实业务流程里，让团队敢用、能测、能迭代。
+
+## 结论
+
+真正能落地的 AI 工具，通常不是一个单独的 Chatbot。
+
+它更像是一套有边界的工作流系统：AI 负责整理、生成、排序和建议；人负责确认、审批和承担关键决策。
+
+这类系统看起来没有“全自动”那么夸张，但它更接近现实，也更有机会被企业真正采用。
