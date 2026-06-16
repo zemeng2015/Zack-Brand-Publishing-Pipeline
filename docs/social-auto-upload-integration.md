@@ -46,3 +46,19 @@ Not allowed:
 
 The exact adapter should be added only after local manual publishing works reliably.
 
+## Current Adapter Output
+
+Run:
+
+```bash
+python scripts/export_social_upload_plan.py
+python scripts/build_social_auto_upload_handoff.py
+```
+
+Output:
+
+```text
+exports/social-auto-upload/upload_tasks.json
+```
+
+This file is a safe handoff contract. It does not contain credentials, cookies, tokens, or browser profile paths.

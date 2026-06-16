@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Published Content Log",
+  "type": "object",
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["content_id", "platform", "published_url", "published_at"],
+        "properties": {
+          "content_id": { "type": "string" },
+          "platform": { "type": "string" },
+          "published_url": { "type": "string" },
+          "published_at": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

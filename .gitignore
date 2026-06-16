@@ -9,10 +9,8 @@ node_modules/
 dist/
 build/
 out/
-exports/*.json
-exports/*.csv
+exports/
 secrets/
 browser-profiles/
 cookies/
 tokens/
-

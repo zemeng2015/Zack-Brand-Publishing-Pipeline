@@ -8,6 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ITEMS_DIR = ROOT / "content" / "items"
+PUBLISHED_LOG_PATH = ROOT / "content" / "published_log.json"
 VALID_STATUSES = {"draft", "needs_review", "approved", "published", "archived"}
 VALID_FORMATS = {"blog", "short_video", "long_video", "linkedin_post", "github_readme", "homepage_case"}
 REQUIRED_FIELDS = {
@@ -91,6 +92,32 @@ def validate_item(path: Path) -> list[str]:
     return errors
 
 
+def validate_published_log() -> list[str]:
+    if not PUBLISHED_LOG_PATH.exists():
+        return [f"content/published_log.json: file is required"]
+
+    try:
+        data = json.loads(PUBLISHED_LOG_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        return [f"content/published_log.json: invalid JSON: {exc}"]
+
+    entries = data.get("entries")
+    if not isinstance(entries, list):
+        return ["content/published_log.json: entries must be a list"]
+
+    errors: list[str] = []
+    seen: set[tuple[str, str, str]] = set()
+    for index, entry in enumerate(entries):
+        for field in ("content_id", "platform", "published_url", "published_at"):
+            if not entry.get(field):
+                errors.append(f"content/published_log.json: entries[{index}] missing {field}")
+        key = (entry.get("content_id", ""), entry.get("platform", ""), entry.get("published_url", ""))
+        if key in seen:
+            errors.append(f"content/published_log.json: duplicate entry for {key[0]} on {key[1]}")
+        seen.add(key)
+    return errors
+
+
 def main() -> int:
     item_paths = sorted(ITEMS_DIR.glob("*.json"))
     if not item_paths:
@@ -100,6 +127,7 @@ def main() -> int:
     errors: list[str] = []
     for path in item_paths:
         errors.extend(validate_item(path))
+    errors.extend(validate_published_log())
 
     if errors:
         print("Validation failed:")
@@ -113,4 +141,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
