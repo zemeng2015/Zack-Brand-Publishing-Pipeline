@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Brand Content Item",
+  "type": "object",
+  "required": [
+    "id",
+    "status",
+    "source_project",
+    "audience",
+    "brand_pillar",
+    "title",
+    "formats",
+    "platforms",
+    "safety_review"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]+$"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "needs_review", "approved", "published", "archived"]
+    },
+    "source_project": {
+      "type": "string"
+    },
+    "audience": {
+      "type": "string"
+    },
+    "brand_pillar": {
+      "type": "string"
+    },
+    "title": {
+      "type": "object",
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string" },
+        "en": { "type": "string" }
+      }
+    },
+    "hook": {
+      "type": "object",
+      "properties": {
+        "zh": { "type": "string" },
+        "en": { "type": "string" }
+      }
+    },
+    "formats": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["blog", "short_video", "long_video", "linkedin_post", "github_readme", "homepage_case"]
+      },
+      "minItems": 1
+    },
+    "platforms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "title", "description", "tags"],
+        "properties": {
+          "name": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "scheduled_for": { "type": "string" }
+        }
+      },
+      "minItems": 1
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "script_path": { "type": "string" },
+        "cover_prompt_path": { "type": "string" },
+        "video_path": { "type": "string" },
+        "blog_path": { "type": "string" }
+      }
+    },
+    "safety_review": {
+      "type": "object",
+      "required": ["approved_for_public_release", "notes"],
+      "properties": {
+        "approved_for_public_release": { "type": "boolean" },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
+

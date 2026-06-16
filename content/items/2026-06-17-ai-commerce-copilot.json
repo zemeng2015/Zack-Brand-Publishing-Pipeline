@@ -1,0 +1,46 @@
+{
+  "id": "2026-06-17-ai-commerce-copilot",
+  "status": "needs_review",
+  "source_project": "TEMU_AI_Copilot",
+  "audience": "AI engineering recruiters, startup founders, and cross-border e-commerce operators",
+  "brand_pillar": "Enterprise AI delivery",
+  "title": {
+    "zh": "我如何把跨境电商 AI 助手从 Demo 做成可私有部署的运营系统",
+    "en": "Turning an AI Commerce Demo into a Private Deployable Operations System"
+  },
+  "hook": {
+    "zh": "真正能落地的 AI 工具，不是一个 Chatbot，而是一套带审批、证据和安全边界的运营系统。",
+    "en": "A usable AI business tool is not just a chatbot. It needs approvals, evidence, and clear safety boundaries."
+  },
+  "formats": ["blog", "short_video", "linkedin_post"],
+  "platforms": [
+    {
+      "name": "bilibili",
+      "title": "跨境电商 AI 助手：从 Demo 到私有部署系统",
+      "description": "拆解一个 AI Commerce Copilot 项目：选品评分、供应商询价、内容草稿、人工审批、审计证据和本地私有部署。",
+      "tags": ["AI", "跨境电商", "AWS", "软件工程", "LLM"]
+    },
+    {
+      "name": "xiaohongshu",
+      "title": "我做了一个跨境电商 AI 运营助手",
+      "description": "不是玩具 Demo，而是围绕运营决策、审批、安全边界和私有部署设计的 AI 系统。",
+      "tags": ["AI工具", "跨境电商", "程序员", "独立开发", "技术转型"]
+    },
+    {
+      "name": "linkedin",
+      "title": "From AI Demo to Deployable Operations System",
+      "description": "A practical breakdown of building an AI commerce copilot with product scoring, supplier quote workflows, approval gates, audit evidence, and private deployment.",
+      "tags": ["AI Engineering", "LLM", "Enterprise AI", "AWS", "Product Engineering"]
+    }
+  ],
+  "assets": {
+    "script_path": "content/scripts/2026-06-17-ai-commerce-copilot-short-video.md",
+    "cover_prompt_path": "content/covers/2026-06-17-ai-commerce-copilot-cover.md",
+    "blog_path": "content/blogs/2026-06-17-ai-commerce-copilot.md"
+  },
+  "safety_review": {
+    "approved_for_public_release": false,
+    "notes": "Review before publishing. Do not show real seller data, credentials, cookies, private platform screens, or claims of official Temu partnership/live account automation."
+  }
+}
+
